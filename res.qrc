@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>adsgouraud.fsh</file>
+        <file>adsgouraud.vsh</file>
+        <file>adsphong.fsh</file>
+        <file>adsphong.vsh</file>
+        <file>assistant-ascii.stl</file>
+        <file>assistant.stl</file>
+        <file>bar-ascii.stl</file>
+        <file>bar.stl</file>
+        <file>base-ascii.stl</file>
+        <file>base.stl</file>
+        <file>master-ascii.stl</file>
+        <file>master.stl</file>
+        <file>total-ascii.stl</file>
+    </qresource>
+</RCC>
