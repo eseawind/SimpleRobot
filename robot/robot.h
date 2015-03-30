@@ -7,6 +7,9 @@
  * 后期如果出现问题再考虑加锁。
  */
 #include <QWidget>
+#include "model.h"
+#include "view.h"
+#include "control.h"
 
 class Model;
 class View;

@@ -1,17 +1,17 @@
 <RCC>
     <qresource prefix="/">
-        <file>adsgouraud.fsh</file>
-        <file>adsgouraud.vsh</file>
-        <file>adsphong.fsh</file>
-        <file>adsphong.vsh</file>
-        <file>assistant-ascii.stl</file>
-        <file>assistant.stl</file>
-        <file>bar-ascii.stl</file>
-        <file>bar.stl</file>
-        <file>base-ascii.stl</file>
-        <file>base.stl</file>
-        <file>master-ascii.stl</file>
-        <file>master.stl</file>
-        <file>total-ascii.stl</file>
+        <file>stl/assistant-ascii.stl</file>
+        <file>stl/assistant.stl</file>
+        <file>stl/bar-ascii.stl</file>
+        <file>stl/bar.stl</file>
+        <file>stl/base-ascii.stl</file>
+        <file>stl/base.stl</file>
+        <file>stl/master-ascii.stl</file>
+        <file>stl/master.stl</file>
+        <file>stl/total-ascii.stl</file>
+        <file>shader/adsgouraud.fsh</file>
+        <file>shader/adsgouraud.vsh</file>
+        <file>shader/adsphong.fsh</file>
+        <file>shader/adsphong.vsh</file>
     </qresource>
 </RCC>

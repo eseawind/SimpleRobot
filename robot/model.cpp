@@ -7,10 +7,10 @@ Model::Model():
 {
 
     STLParser parser;
-    object[BASE] = parser.getSTLObjectFromBinary(":/base.stl");
-    object[MASTER] = parser.getSTLObjectFromBinary(":/master.stl");
-    object[ASSISTANT] = parser.getSTLObjectFromBinary(":/assistant.stl");
-    object[BAR] = parser.getSTLObjectFromBinary(":/bar.stl");
+    object[BASE] = parser.getSTLObjectFromBinary(":/stl/base.stl");
+    object[MASTER] = parser.getSTLObjectFromBinary(":/stl/master.stl");
+    object[ASSISTANT] = parser.getSTLObjectFromBinary(":/stl/assistant.stl");
+    object[BAR] = parser.getSTLObjectFromBinary(":/stl/bar.stl");
 
     assert(object[BASE]&&object[MASTER]&&object[ASSISTANT]&&object[BAR]);
 

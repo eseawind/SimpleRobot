@@ -22,8 +22,8 @@ void View::initializeGL()
 
     m_program.create();
     QOpenGLShader vshader(QOpenGLShader::Vertex), fshader(QOpenGLShader::Fragment);
-    vshader.compileSourceFile(":/adsphong.vsh");
-    fshader.compileSourceFile(":/adsphong.fsh");
+    vshader.compileSourceFile(":/shader/adsphong.vsh");
+    fshader.compileSourceFile(":/shader/adsphong.fsh");
 
     m_program.addShader(&vshader);
     m_program.addShader(&fshader);

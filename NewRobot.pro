@@ -8,42 +8,26 @@ QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = NewRobot
+TARGET = SimpleRobot
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    stlparser.cpp \
-    model.cpp \
-    view.cpp \
-    control.cpp \
-    robot.cpp
+    robot/control.cpp \
+    robot/model.cpp \
+    robot/robot.cpp \
+    robot/stlparser.cpp \
+    robot/view.cpp
 
 HEADERS  += mainwindow.h \
-    stlparser.h \
-    model.h \
-    view.h \
-    control.h \
-    robot.h
+    robot/control.h \
+    robot/model.h \
+    robot/robot.h \
+    robot/stlparser.h \
+    robot/view.h
 
 FORMS    += mainwindow.ui
-
-DISTFILES += \
-    assistant.stl \
-    bar.stl \
-    base.stl \
-    master.stl \
-    assistant-ascii.stl \
-    bar-ascii.stl \
-    base-ascii.stl \
-    master-ascii.stl \
-    NewRobot.pro.user \
-    total-ascii.stl \
-    adsgouraud.fsh \
-    adsphong.fsh \
-    adsgouraud.vsh \
-    adsphong.vsh
 
 RESOURCES += \
     res.qrc

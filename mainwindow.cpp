@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "robot.h"
-#include "model.h"
-#include "view.h"
-#include "control.h"
+#include "robot/robot.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
