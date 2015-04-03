@@ -14,6 +14,15 @@ Control::~Control()
 {
 }
 
+void Control::Stop()
+{
+    paintTick.stop();
+    model->setTargetValue(Model::MASTER_ROTATE, model->getCurValue(Model::MASTER_ROTATE));
+    model->setTargetValue(Model::ASSISTANT_ROTATE, model->getCurValue(Model::ASSISTANT_ROTATE));
+    model->setTargetValue(Model::BAR_ROTATE, model->getCurValue(Model::BAR_ROTATE));
+    model->setTargetValue(Model::BAR_MOVE, model->getCurValue(Model::BAR_MOVE));
+}
+
 bool Control::actionAbs(Model::ActionType actionType, float angle, float speed, bool immediate)
 {
     bool ret = false;

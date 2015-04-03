@@ -44,7 +44,7 @@ public:
     bool MoveBar(float down, float speed=-1, bool immediate=false){
         return action(model->BAR_MOVE, -down, speed, immediate);
     }
-
+    void Stop();
     bool actionAbs(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
     bool action(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
     void setModel(Model *model) {

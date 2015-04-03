@@ -87,6 +87,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Semicolon:
         control->MoveBarAbs(0, 50, immediate);
         break;
+    case Qt::Key_Space:
+        control->Stop();
+        break;
     default:
         QMainWindow::keyPressEvent(event);
         break;
