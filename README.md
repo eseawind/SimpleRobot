@@ -127,6 +127,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Semicolon:
         control->MoveBarAbs(0, 50, immediate);
         break;
+    case Qt::Key_Space:
+        control->Stop();
+        break;
     default:
         QMainWindow::keyPressEvent(event);
         break;
@@ -147,3 +150,4 @@ void MainWindow::onReached()
 * q, a旋转主臂，w, s旋转副臂，e, d旋转工具杆，r, f伸缩工具杆
 * u, j旋转主臂到指定位置，i, k旋转副臂到指定位置，o, l旋转工具杆到指定位置， ;, p伸缩工具杆到指定位置
 * 按住shift在按以上的键，指定部位立即到达指定位置，其他部位仍然正常运动。
+* 空格键停止
