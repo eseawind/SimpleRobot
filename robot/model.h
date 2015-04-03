@@ -3,6 +3,7 @@
 
 #include <QVector>
 #include <QMatrix4x4>
+#include <cassert>
 struct STLObject;
 
 class Model : public QObject
@@ -47,12 +48,12 @@ public:
         }
 
         float target = data.cur[actionType] + data.speed[actionType] * spendSeconds * data.direction[actionType];
+        assert(data.speed[actionType]*spendSeconds>=0);
         if((data.direction[actionType]>0&&target>data.target[actionType]) ||
            (data.direction[actionType]<0&&target<data.target[actionType])){
             if(reached) *reached = true;
             data.cur[actionType] = data.target[actionType];
-        }
-        else{
+        }else{
             if(reached) *reached = false;
             data.cur[actionType] = target;
         }
