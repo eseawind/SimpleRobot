@@ -8,7 +8,7 @@
 * Mac OS 10.10(实测同样可在Windows上正常工作)
 
 ##主要API使用
-```
+```cpp
 // 移动主臂到指定角度
 // angle: 角度
 // speed: 速度1-100，-1表示继续以上次设定的值运动
@@ -35,7 +35,7 @@ void setFinishedSignal(bool open);
 
 ##简单实例
 mainwindow.cpp
-```
+```cpp
 include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "robot.h"

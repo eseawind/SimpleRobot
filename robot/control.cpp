@@ -23,14 +23,14 @@ void Control::Stop()
     model->setTargetValue(Model::BAR_MOVE, model->getCurValue(Model::BAR_MOVE));
 }
 
+// 需要先判断speed是否正确再进行下一步，需要进行强烈保证
 bool Control::actionAbs(Model::ActionType actionType, float angle, float speed, bool immediate)
 {
     bool ret = false;
     if(immediate){
         // 关闭时钟中断减少异步中断修改数据带来的冲突
         paintTick.stop();
-        ret = model->setCurValue(actionType, angle);
-        float cur = model->getCurValue(actionType);
+        model->setCurValue(actionType, angle);
         ret = model->setTargetValue(actionType, angle, speed);
         if(ret)
             view->update();
