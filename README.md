@@ -63,6 +63,9 @@ MainWindow::~MainWindow()
 //按键响应函数
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
+    bool immediate = false;
+    // 如果按住shift则立即到达位置
+    if(event->modifiers() == Qt::ShiftModifier) immediate = true;
     switch (event->key()) {
     case Qt::Key_Left:
         view->rotateView(0,-10,0);
@@ -77,52 +80,52 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         view->rotateView(0,10,0);
         break;
     case Qt::Key_Q:
-        control->RotateMaster(-40);
+        control->RotateMaster(-40, 100, immediate);
         break;
     case Qt::Key_A:
-        control->RotateMaster(40);
+        control->RotateMaster(40, 100, immediate);
         break;
     case Qt::Key_W:
-        control->RotateAssistant(-40);
+        control->RotateAssistant(-40, 100, immediate);
         break;
     case Qt::Key_S:
-        control->RotateAssistant(40);
+        control->RotateAssistant(40, 100, immediate);
         break;
     case Qt::Key_E:
-        control->RotateBar(-40);
+        control->RotateBar(-40, 100, immediate);
         break;
     case Qt::Key_D:
-        control->RotateBar(40);
+        control->RotateBar(40, 100, immediate);
         break;
     case Qt::Key_R:
-        control->MoveBar(-40);
+        control->MoveBar(-40, 100, immediate);
         break;
     case Qt::Key_F:
-        control->MoveBar(40);
+        control->MoveBar(40, 100, immediate);
         break;
     case Qt::Key_U:
-        control->RotateMasterAbs(-90, 50, true);
-        break;
-    case Qt::Key_I:
-        control->RotateMasterAbs(90, 50);
-        break;
-    case Qt::Key_O:
-        control->RotateAssistantAbs(-90, 50);
-        break;
-    case Qt::Key_P:
-        control->RotateAssistantAbs(90, 50);
-        break;
-    case Qt::Key_H:
-        control->RotateBarAbs(-90, 50);
+        control->RotateMasterAbs(-90, 50, immediate);
         break;
     case Qt::Key_J:
-        control->RotateBarAbs(90, 50);
+        control->RotateMasterAbs(90, 50, immediate);
+        break;
+    case Qt::Key_I:
+        control->RotateAssistantAbs(-90, 50, immediate);
         break;
     case Qt::Key_K:
-        control->MoveBarAbs(40, 50);
+        control->RotateAssistantAbs(90, 50, immediate);
+        break;
+    case Qt::Key_O:
+        control->RotateBarAbs(-90, 50, immediate);
         break;
     case Qt::Key_L:
-        control->MoveBarAbs(0, 50);
+        control->RotateBarAbs(90, 50, immediate);
+        break;
+    case Qt::Key_P:
+        control->MoveBarAbs(40, 50, immediate);
+        break;
+    case Qt::Key_Semicolon:
+        control->MoveBarAbs(0, 50, immediate);
         break;
     default:
         QMainWindow::keyPressEvent(event);
@@ -137,3 +140,10 @@ void MainWindow::onReached()
 }
 ```
 具体示例请看项目代码。
+
+#例子使用说明
+在QTCreator中编译成功后运行。
+* 方向键旋转视角    
+* q, a旋转主臂，w, s旋转副臂，e, d旋转工具杆，r, f伸缩工具杆
+* u, j旋转主臂到指定位置，i, k旋转副臂到指定位置，o, l旋转工具杆到指定位置， ;, p伸缩工具杆到指定位置
+* 按住shift在按以上的键，指定部位立即到达指定位置，其他部位仍然正常运动。

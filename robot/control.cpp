@@ -18,12 +18,15 @@ bool Control::actionAbs(Model::ActionType actionType, float angle, float speed, 
 {
     bool ret = false;
     if(immediate){
+        // 关闭时钟中断减少异步中断修改数据带来的冲突
         paintTick.stop();
         ret = model->setCurValue(actionType, angle);
         float cur = model->getCurValue(actionType);
-        ret = model->setTargetValue(actionType, cur+angle, speed);
+        ret = model->setTargetValue(actionType, angle, speed);
         if(ret)
             view->update();
+        // 重启时钟，完成其他部位的运动
+        paintTick.start();
     }else{
         ret = model->setTargetValue(actionType, angle, speed);
         if(ret)
@@ -36,12 +39,15 @@ bool Control::action(Model::ActionType actionType, float angle, float speed, boo
 {
     bool ret = false;
     if(immediate){
+       // 关闭时钟中断减少异步中断修改数据带来的冲突
        paintTick.stop();
        ret = model->addCurValue(actionType, angle);
        float cur = model->getCurValue(actionType);
        ret = model->setTargetValue(actionType, cur+angle, speed);
        if(ret)
             view->update();
+       // 重启时钟，完成其他部位的运动
+       paintTick.stop();
     }else{
        float cur = model->getCurValue(actionType);
        ret = model->setTargetValue(actionType, cur+angle, speed);

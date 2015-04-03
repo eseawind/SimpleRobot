@@ -24,6 +24,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
+    bool immediate = false;
+    if(event->modifiers() == Qt::ShiftModifier) immediate = true;
     switch (event->key()) {
     case Qt::Key_Left:
         view->rotateView(0,-10,0);
@@ -38,52 +40,52 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         view->rotateView(0,10,0);
         break;
     case Qt::Key_Q:
-        control->RotateMaster(-40);
+        control->RotateMaster(-40, 100, immediate);
         break;
     case Qt::Key_A:
-        control->RotateMaster(40);
+        control->RotateMaster(40, 100, immediate);
         break;
     case Qt::Key_W:
-        control->RotateAssistant(-40);
+        control->RotateAssistant(-40, 100, immediate);
         break;
     case Qt::Key_S:
-        control->RotateAssistant(40);
+        control->RotateAssistant(40, 100, immediate);
         break;
     case Qt::Key_E:
-        control->RotateBar(-40);
+        control->RotateBar(-40, 100, immediate);
         break;
     case Qt::Key_D:
-        control->RotateBar(40);
+        control->RotateBar(40, 100 ,immediate);
         break;
     case Qt::Key_R:
-        control->MoveBar(-40);
+        control->MoveBar(-40, 100, immediate);
         break;
     case Qt::Key_F:
-        control->MoveBar(40);
+        control->MoveBar(40, 100, immediate);
         break;
     case Qt::Key_U:
-        control->RotateMasterAbs(-90, 50, true);
-        break;
-    case Qt::Key_I:
-        control->RotateMasterAbs(90, 50);
-        break;
-    case Qt::Key_O:
-        control->RotateAssistantAbs(-90, 50);
-        break;
-    case Qt::Key_P:
-        control->RotateAssistantAbs(90, 50);
-        break;
-    case Qt::Key_H:
-        control->RotateBarAbs(-90, 50);
+        control->RotateMasterAbs(-90, 50, immediate);
         break;
     case Qt::Key_J:
-        control->RotateBarAbs(90, 50);
+        control->RotateMasterAbs(90, 50, immediate);
+        break;
+    case Qt::Key_I:
+        control->RotateAssistantAbs(-90, 50, immediate);
         break;
     case Qt::Key_K:
-        control->MoveBarAbs(40, 50);
+        control->RotateAssistantAbs(90, 50, immediate);
+        break;
+    case Qt::Key_O:
+        control->RotateBarAbs(-90, 50, immediate);
         break;
     case Qt::Key_L:
-        control->MoveBarAbs(0, 50);
+        control->RotateBarAbs(90, 50, immediate);
+        break;
+    case Qt::Key_P:
+        control->MoveBarAbs(40, 50, immediate);
+        break;
+    case Qt::Key_Semicolon:
+        control->MoveBarAbs(0, 50, immediate);
         break;
     default:
         QMainWindow::keyPressEvent(event);
