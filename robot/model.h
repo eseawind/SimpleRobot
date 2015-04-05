@@ -86,7 +86,7 @@ public:
             action_bar_move.translate(0, value, 0);
             break;
         default:
-            return false;
+            assert(false);
             break;
         }
         data.cur[actionType] = value;
@@ -109,7 +109,7 @@ public:
             action_bar_move.translate(0, value, 0);
             break;
         default:
-            return false;
+            assert(false);
             break;
         }
         data.cur[actionType]  += value;
@@ -126,7 +126,7 @@ public:
         else if(speed==-1)
             data.direction[actionType] = sign(angle - data.cur[actionType]);
         else
-            return false;
+            assert(false);
         return true;
     }
 

@@ -45,8 +45,6 @@ public:
         return action(model->BAR_MOVE, -down, speed, immediate);
     }
     void Stop();
-    bool actionAbs(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
-    bool action(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
     void setModel(Model *model) {
         this->model = model;
     }
@@ -59,6 +57,9 @@ public:
 protected slots:
     void onPaintTick();
 private:
+    bool actionAbs(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
+    bool action(Model::ActionType actionType, float angle, float speed=-1, bool immediate=false);
+
     Model *model;
     View *view;
     QTimer paintTick;

@@ -23,47 +23,43 @@ void Control::Stop()
     model->setTargetValue(Model::BAR_MOVE, model->getCurValue(Model::BAR_MOVE));
 }
 
-// 需要先判断speed是否正确再进行下一步，需要进行强烈保证
+// 需要先判断speed是否正确再进行下一步，否则直接返回false
 bool Control::actionAbs(Model::ActionType actionType, float angle, float speed, bool immediate)
 {
-    bool ret = false;
+    if( !((speed>0&&speed<=100)||speed==-1) ) return false;
     if(immediate){
         // 关闭时钟中断减少异步中断修改数据带来的冲突
         paintTick.stop();
         model->setCurValue(actionType, angle);
-        ret = model->setTargetValue(actionType, angle, speed);
-        if(ret)
-            view->update();
+        model->setTargetValue(actionType, angle, speed);
+        view->update();
         // 重启时钟，完成其他部位的运动
         paintTick.start();
     }else{
-        ret = model->setTargetValue(actionType, angle, speed);
-        if(ret)
-            paintTick.start();
+        model->setTargetValue(actionType, angle, speed);
+        paintTick.start();
     }
-    return ret;
+    return true;
 }
 
 bool Control::action(Model::ActionType actionType, float angle, float speed, bool immediate)
 {
-    bool ret = false;
+    if( !((speed>0&&speed<=100)||speed==-1) ) return false;
     if(immediate){
        // 关闭时钟中断减少异步中断修改数据带来的冲突
        paintTick.stop();
-       ret = model->addCurValue(actionType, angle);
+       model->addCurValue(actionType, angle);
        float cur = model->getCurValue(actionType);
-       ret = model->setTargetValue(actionType, cur+angle, speed);
-       if(ret)
-            view->update();
+       model->setTargetValue(actionType, cur+angle, speed);
+       view->update();
        // 重启时钟，完成其他部位的运动
        paintTick.stop();
     }else{
        float cur = model->getCurValue(actionType);
-       ret = model->setTargetValue(actionType, cur+angle, speed);
-       if(ret)
-           paintTick.start();
+       model->setTargetValue(actionType, cur+angle, speed);
+       paintTick.start();
     }
-    return ret;
+    return true;
 }
 
 void Control::onPaintTick()
