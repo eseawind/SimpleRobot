@@ -5,28 +5,34 @@
 #include <QMatrix4x4>
 #include <cassert>
 struct STLObject;
-
+/// 机器人数据模型
 class Model : public QObject
 {
     Q_OBJECT
-    float speedFactor;
-    int defaultSpeed;
-public:
-    Model();
-    ~Model();
+    /// 机器人位置信息结构体
     struct RobotData{
         float cur[4], target[4];
         float speed[4];
         int directionFactor[4];
         int direction[4];
     };
+public:
+    /// A constructor
+    Model();
+    /// A destructor
+    ~Model();
+    /// 动作类型
     enum ActionType{MASTER_ROTATE=0, ASSISTANT_ROTATE=1, BAR_ROTATE=2, BAR_MOVE=3};
+    /// 模型部位
     enum ModelType{BASE=0, MASTER=1, ASSISTANT=2, BAR=3};
+    /// 获取模型顶点
     const QVector<float> &getModelVerteces() const;
+    /// 获取模型法向量
     const QVector<float> &getModelNormals() const;
-
+    /// 获取模型顶点数目
     unsigned int getModelVertecesNum(ModelType modelType) const { return arrayV[modelType].size()/3; }
-    void initValue()
+    /// 重置机器人位置
+    void resetValue()
     {
         for(int i=0; i<4; ++i){
             data.cur[i] = data.target[i] = 0;
@@ -39,7 +45,7 @@ public:
         action_bar.setToIdentity();
         action_bar_move.setToIdentity();
     }
-
+    /// 计算指定部位当前位置
     float CalcCurValue(ActionType actionType, float spendSeconds, bool *reached)
     {
         if(data.cur[actionType]==data.target[actionType]){
@@ -60,12 +66,12 @@ public:
         setCurValue(actionType, data.cur[actionType]);
         return data.cur[actionType];
     }
-
+    /// 获取当前位置
     float getCurValue(ActionType actionType)
     {
         return data.cur[actionType];
     }
-
+    /// 设置当前位置
     bool setCurValue(ActionType actionType, float value)
     {
         switch (actionType) {
@@ -93,6 +99,7 @@ public:
         data.direction[actionType] = sign(data.target[actionType] - data.cur[actionType]);
         return true;
     }
+    /// 对当前位置添加指定的值
     bool addCurValue(ActionType actionType, float value)
     {
         switch (actionType) {
@@ -116,6 +123,7 @@ public:
         data.direction[actionType] = sign(data.target[actionType] - data.cur[actionType]);
         return true;
     }
+    /// 设置目标位置
     bool setTargetValue(ActionType actionType, float angle, float speed=-1)
     {
         data.target[actionType] = angle;
@@ -129,7 +137,9 @@ public:
             assert(false);
         return true;
     }
-
+    /// 设置运动速度
+    /// @param actionType 动作类型
+    /// @param speed 速度(1-100)
     bool setSpeed(ActionType actionType, float speed)
     {
         if(speed>0&&speed<=100)
@@ -143,14 +153,16 @@ public:
     QMatrix4x4 matrix_base, matrix_master, matrix_assistant, matrix_bar;
     QMatrix4x4 action_master, action_assistant, action_bar, action_bar_move;
     QMatrix4x4 center_base, center_master, center_assistant, center_bar;
+
 private:
     int sign(float value) { return value>0?1:(value<0?-1:0); }
     void getVerteces(STLObject *obj, QVector<float> &vertecs, QVector<float> &normals);
-    STLObject *object[4];
-    QVector<float> arrayV[4], arrayN[4];
-    QVector<float> verteces, normals;
-   // bool ready;
-    RobotData data;
+    float speedFactor;      ///< 速度因子，调节全局速度比例
+    int defaultSpeed;       ///< 默认速度
+    RobotData data;         ///< 机器人运动数据
+    STLObject *object[4];   ///< STL数据
+    QVector<float> arrayV[4], arrayN[4]; ///< STL顶点和向量
+    QVector<float> verteces, normals;    ///< STL顶点和向量
 
 };
 

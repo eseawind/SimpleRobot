@@ -14,13 +14,17 @@
 class Model;
 class View;
 class Control;
-
+/// 机器人类
 class Robot
 {
 public:
+    /// A constructor
     Robot();
+    /// A destructor
     ~Robot();
+    /// 获取视图
     View *getView() const { return view; }
+    /// 获取控制器
     Control *getControl() const { return control; }
 private:
     Model *model;

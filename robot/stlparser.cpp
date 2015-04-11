@@ -15,7 +15,7 @@ STLParser::~STLParser()
 
 }
 
-STLObject* STLParser::getSTLObjectFromBinary(QString filename)
+STLObject* STLParser::getSTLObjectFromBinary(const QString &filename)
 {
     char buff[84];
     QFile file(filename);
@@ -33,7 +33,7 @@ STLObject* STLParser::getSTLObjectFromBinary(QString filename)
     memcpy((void*)&obj->facesi, &buff[80], 4);
 
     obj->triangles.resize(obj->facesi);
-    for(int i=0; i<obj->facesi; ++i){
+    for(unsigned int i=0; i<obj->facesi; ++i){
         for(int j=0; j<3; ++j){
             assert(4==file.read((char*)&obj->triangles[i].normalf[j], 4));
         }
@@ -50,7 +50,7 @@ STLObject* STLParser::getSTLObjectFromBinary(QString filename)
     return obj;
 }
 
-STLObject *STLParser::getSTLObjectFromAscii(QString filename)
+STLObject *STLParser::getSTLObjectFromAscii(const QString &filename)
 {
     char head[5];
     char line[256];

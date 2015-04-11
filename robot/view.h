@@ -10,11 +10,18 @@
 #include <QOpenGLBuffer>
 
 class Model;
+/// 视图类
 class View : public QOpenGLWidget, protected QOpenGLFunctions
 {
 public:
+    /// A construtor
     View(Model *model, QWidget *parent=0);
+    /// A destructor
     ~View();
+    /// 旋转视图
+    /// @param thetaX 绕x轴角度
+    /// @param thetaY 绕y轴角度
+    /// @param thetaZ 绕z轴角度
     void rotateView(float thetaX, float thetaY, float thetaZ) {
        theta[0] += thetaX;
        theta[1] += thetaY;

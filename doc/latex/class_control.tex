@@ -1,0 +1,305 @@
+\hypertarget{class_control}{}\section{Control类 参考}
+\label{class_control}\index{Control@{Control}}
+
+
+控制类  
+
+
+
+
+{\ttfamily \#include $<$control.\+h$>$}
+
+类 Control 继承关系图\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_control}
+\end{center}
+\end{figure}
+\subsection*{信号}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_control_aa3dfe35b337f0342abc4aaa9b25d334a}{}void \hyperlink{class_control_aa3dfe35b337f0342abc4aaa9b25d334a}{action\+Finished} ()\label{class_control_aa3dfe35b337f0342abc4aaa9b25d334a}
+
+\begin{DoxyCompactList}\small\item\em 动作完成信号 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_control_aa730aeda4517f40bc48ba1e46ebded77}{}\hyperlink{class_control_aa730aeda4517f40bc48ba1e46ebded77}{Control} ()\label{class_control_aa730aeda4517f40bc48ba1e46ebded77}
+
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_control_aedda1328c4f8b8d49bca8f0812d3bfd1}{}\hyperlink{class_control_aedda1328c4f8b8d49bca8f0812d3bfd1}{$\sim$\+Control} ()\label{class_control_aedda1328c4f8b8d49bca8f0812d3bfd1}
+
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_ad223c63a5825a584f17a4cfc3b1b021d}{Rotate\+Master\+Abs} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转主臂到指定角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_ada672bd88cf68c704896094e831c6712}{Rotate\+Master} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转主臂指定大小的角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_a8639f928bd61943fc7f7a1f57b9aa544}{Rotate\+Assistant\+Abs} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转副臂到指定角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_a1472aabfe513d8abd7e55fa665ca5ed4}{Rotate\+Assistant} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转副臂指定大小的角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_a7a42b29c54f6bbcde494a57489fe9f70}{Rotate\+Bar\+Abs} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转工具杆到指定角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_ae7a6809f813de5bf1ad1eaf682d572df}{Rotate\+Bar} (float angle, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 旋转工具杆指定大小的角度 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_a1e089b19f49a8214e5791fa2fbd87cce}{Move\+Bar\+Abs} (float down, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 移动工具杆到指定位置 \end{DoxyCompactList}\item 
+bool \hyperlink{class_control_a0e6e5b1243a21767a4707639a6536ef6}{Move\+Bar} (float down, float speed=-\/1, bool immediate=false)
+\begin{DoxyCompactList}\small\item\em 移动工具杆指定大小的位移 \end{DoxyCompactList}\item 
+\hypertarget{class_control_ad408f3b1eaf5b30c96600f4a299c0119}{}void \hyperlink{class_control_ad408f3b1eaf5b30c96600f4a299c0119}{Stop} ()\label{class_control_ad408f3b1eaf5b30c96600f4a299c0119}
+
+\begin{DoxyCompactList}\small\item\em 停止运动 \end{DoxyCompactList}\item 
+void \hyperlink{class_control_ab356fe0c8c30559cbeeb38d4b2c4cc1b}{set\+Model} (\hyperlink{class_model}{Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em 设置数据模型 \end{DoxyCompactList}\item 
+void \hyperlink{class_control_a265d02f2f3c4e5bcffab2726ae72b54c}{set\+View} (\hyperlink{class_view}{View} $\ast$view)
+\begin{DoxyCompactList}\small\item\em 设置3\+D视图 \end{DoxyCompactList}\item 
+void \hyperlink{class_control_adf3a4b133db05f5c0a454fc125ab4d68}{set\+Finished\+Signal} (bool open)
+\begin{DoxyCompactList}\small\item\em 开关结束信号 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_control_a3cfae96ae72da599e682bee89f561527}{}float \hyperlink{class_control_a3cfae96ae72da599e682bee89f561527}{internal\+Msecs}\label{class_control_a3cfae96ae72da599e682bee89f561527}
+
+\begin{DoxyCompactList}\small\item\em 定时刷新时间 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected 槽}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_control_a06e70e1ef83056e2ec2925d17d1dfbde}{}void \hyperlink{class_control_a06e70e1ef83056e2ec2925d17d1dfbde}{on\+Paint\+Tick} ()\label{class_control_a06e70e1ef83056e2ec2925d17d1dfbde}
+
+\begin{DoxyCompactList}\small\item\em 定时器中断槽 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+控制类 
+
+\subsection{成员函数说明}
+\hypertarget{class_control_a0e6e5b1243a21767a4707639a6536ef6}{}\index{Control@{Control}!Move\+Bar@{Move\+Bar}}
+\index{Move\+Bar@{Move\+Bar}!Control@{Control}}
+\subsubsection[{Move\+Bar}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Move\+Bar (
+\begin{DoxyParamCaption}
+\item[{float}]{down, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a0e6e5b1243a21767a4707639a6536ef6}
+
+
+移动工具杆指定大小的位移 
+
+
+\begin{DoxyParams}{参数}
+{\em down} & 位移 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_a1e089b19f49a8214e5791fa2fbd87cce}{}\index{Control@{Control}!Move\+Bar\+Abs@{Move\+Bar\+Abs}}
+\index{Move\+Bar\+Abs@{Move\+Bar\+Abs}!Control@{Control}}
+\subsubsection[{Move\+Bar\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Move\+Bar\+Abs (
+\begin{DoxyParamCaption}
+\item[{float}]{down, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a1e089b19f49a8214e5791fa2fbd87cce}
+
+
+移动工具杆到指定位置 
+
+
+\begin{DoxyParams}{参数}
+{\em down} & 位置 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_a1472aabfe513d8abd7e55fa665ca5ed4}{}\index{Control@{Control}!Rotate\+Assistant@{Rotate\+Assistant}}
+\index{Rotate\+Assistant@{Rotate\+Assistant}!Control@{Control}}
+\subsubsection[{Rotate\+Assistant}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Assistant (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a1472aabfe513d8abd7e55fa665ca5ed4}
+
+
+旋转副臂指定大小的角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_a8639f928bd61943fc7f7a1f57b9aa544}{}\index{Control@{Control}!Rotate\+Assistant\+Abs@{Rotate\+Assistant\+Abs}}
+\index{Rotate\+Assistant\+Abs@{Rotate\+Assistant\+Abs}!Control@{Control}}
+\subsubsection[{Rotate\+Assistant\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Assistant\+Abs (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a8639f928bd61943fc7f7a1f57b9aa544}
+
+
+旋转副臂到指定角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_ae7a6809f813de5bf1ad1eaf682d572df}{}\index{Control@{Control}!Rotate\+Bar@{Rotate\+Bar}}
+\index{Rotate\+Bar@{Rotate\+Bar}!Control@{Control}}
+\subsubsection[{Rotate\+Bar}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Bar (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_ae7a6809f813de5bf1ad1eaf682d572df}
+
+
+旋转工具杆指定大小的角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_a7a42b29c54f6bbcde494a57489fe9f70}{}\index{Control@{Control}!Rotate\+Bar\+Abs@{Rotate\+Bar\+Abs}}
+\index{Rotate\+Bar\+Abs@{Rotate\+Bar\+Abs}!Control@{Control}}
+\subsubsection[{Rotate\+Bar\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Bar\+Abs (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a7a42b29c54f6bbcde494a57489fe9f70}
+
+
+旋转工具杆到指定角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_ada672bd88cf68c704896094e831c6712}{}\index{Control@{Control}!Rotate\+Master@{Rotate\+Master}}
+\index{Rotate\+Master@{Rotate\+Master}!Control@{Control}}
+\subsubsection[{Rotate\+Master}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Master (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_ada672bd88cf68c704896094e831c6712}
+
+
+旋转主臂指定大小的角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_ad223c63a5825a584f17a4cfc3b1b021d}{}\index{Control@{Control}!Rotate\+Master\+Abs@{Rotate\+Master\+Abs}}
+\index{Rotate\+Master\+Abs@{Rotate\+Master\+Abs}!Control@{Control}}
+\subsubsection[{Rotate\+Master\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}bool Control\+::\+Rotate\+Master\+Abs (
+\begin{DoxyParamCaption}
+\item[{float}]{angle, }
+\item[{float}]{speed = {\ttfamily -\/1}, }
+\item[{bool}]{immediate = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_ad223c63a5825a584f17a4cfc3b1b021d}
+
+
+旋转主臂到指定角度 
+
+
+\begin{DoxyParams}{参数}
+{\em angle} & 角度 \\
+\hline
+{\em speed} & 速度（-\/1 or 1-\/100） \\
+\hline
+{\em immediate} & 是否立即到达 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_adf3a4b133db05f5c0a454fc125ab4d68}{}\index{Control@{Control}!set\+Finished\+Signal@{set\+Finished\+Signal}}
+\index{set\+Finished\+Signal@{set\+Finished\+Signal}!Control@{Control}}
+\subsubsection[{set\+Finished\+Signal}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+::set\+Finished\+Signal (
+\begin{DoxyParamCaption}
+\item[{bool}]{open}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_adf3a4b133db05f5c0a454fc125ab4d68}
+
+
+开关结束信号 
+
+
+\begin{DoxyParams}{参数}
+{\em open} & 打开结束信号? \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_ab356fe0c8c30559cbeeb38d4b2c4cc1b}{}\index{Control@{Control}!set\+Model@{set\+Model}}
+\index{set\+Model@{set\+Model}!Control@{Control}}
+\subsubsection[{set\+Model}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+::set\+Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_ab356fe0c8c30559cbeeb38d4b2c4cc1b}
+
+
+设置数据模型 
+
+
+\begin{DoxyParams}{参数}
+{\em model} & 数据模型指针 \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_control_a265d02f2f3c4e5bcffab2726ae72b54c}{}\index{Control@{Control}!set\+View@{set\+View}}
+\index{set\+View@{set\+View}!Control@{Control}}
+\subsubsection[{set\+View}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+::set\+View (
+\begin{DoxyParamCaption}
+\item[{{\bf View} $\ast$}]{view}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_control_a265d02f2f3c4e5bcffab2726ae72b54c}
+
+
+设置3\+D视图 
+
+
+\begin{DoxyParams}{参数}
+{\em view} & 3\+D视图指针 \\
+\hline
+\end{DoxyParams}
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/firemiles/\+Developer/\+Open\+G\+L/\+Simple\+Robot/robot/control.\+h\item 
+/\+Users/firemiles/\+Developer/\+Open\+G\+L/\+Simple\+Robot/robot/control.\+cpp\end{DoxyCompactItemize}
