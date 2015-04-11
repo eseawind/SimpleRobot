@@ -9,6 +9,7 @@
 
 ##主要API使用
 **详细文档: doc/html/index.html**
+[API网页](http://firemiles.github.io/SimpleRobot/index.html)
 ```cpp
 // 移动主臂到指定角度
 // angle: 角度
