@@ -8,7 +8,7 @@
 * Mac OS 10.10(实测同样可在Windows上正常工作)
 
 ##主要API使用
-[详细文档](doc/html/index.html)
+**详细文档: doc/html/index.html**
 ```cpp
 // 移动主臂到指定角度
 // angle: 角度
