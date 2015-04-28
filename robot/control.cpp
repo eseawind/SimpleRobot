@@ -12,6 +12,7 @@ Control::Control():
 
 Control::~Control()
 {
+    paintTick.stop();
 }
 
 void Control::Stop()

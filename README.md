@@ -6,9 +6,16 @@
 * Qt5.4
 * OpenGL ES 2.0
 * Mac OS 10.10(实测同样可在Windows上正常工作)
+##目标平台
+由于是Qt开发的，因此直接在各大平台编译就可以运行。
+* Windows
+* Linux
+* Mac OS
+* 可在Android4.2之后的版本运行
 
 ##主要API使用
 **详细文档: doc/html/index.html**
+
 [API网页](http://firemiles.github.io/SimpleRobot/index.html)
 ```cpp
 // 移动主臂到指定角度

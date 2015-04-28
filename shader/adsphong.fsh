@@ -1,4 +1,8 @@
-#version 120
+#ifdef GL_ES
+// Set default precision to medium
+precision mediump int;
+precision mediump float;
+#endif
 uniform vec4 ambientColor;
 uniform vec4 diffuseColor;
 uniform vec4 specularColor;
@@ -13,7 +17,7 @@ void main(void)
     gl_FragColor = diff * diffuseColor;
     gl_FragColor += ambientColor;
 
-    if(diff!=0){
+    if(diff>0.00001||diff<-0.00001){
         vec3 vReflection = normalize(reflect(-normalize(vVaryingLightDir),
                                              normalize(vVaryingNormal)));
         float spec = max(0.0, dot(normalize(vVaryingNormal),

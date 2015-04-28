@@ -5,7 +5,6 @@ View::View(Model *model, QWidget *parent) :
     QOpenGLWidget(parent)
 {
     this->model = model;
-
     theta[0] = theta[1] = theta[2] = 0;
 }
 
@@ -21,12 +20,8 @@ void View::initializeGL()
     glClearColor(0.6, 0.8, 0.9, 1);
 
     m_program.create();
-    QOpenGLShader vshader(QOpenGLShader::Vertex), fshader(QOpenGLShader::Fragment);
-    vshader.compileSourceFile(":/shader/adsphong.vsh");
-    fshader.compileSourceFile(":/shader/adsphong.fsh");
-
-    m_program.addShader(&vshader);
-    m_program.addShader(&fshader);
+    m_program.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/shader/adsphong.vsh");
+    m_program.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/shader/adsphong.fsh");
 
     if(!m_program.link()){
         qDebug()<<m_program.log();
@@ -131,7 +126,13 @@ QMatrix4x4 View::paintBase(QMatrix4x4 &mv)
     static GLint count = model->getModelVertecesNum(model->BASE);
     QMatrix4x4 mvMatrix = mv * model->center_base * model->matrix_base;
     QMatrix4x4 mvpMatrix = m_projection * mvMatrix;
-    QMatrix4x4 normalMatrix = mvMatrix;
+    QMatrix3x3 normalMatrix;
+    float *tdata = normalMatrix.data();
+    float *sdata = mvMatrix.data();
+    for(int i=0;i<3;++i)
+        for(int j=0;j<3;++j){
+            tdata[i*3+j] = sdata[i*4+j];
+        }
 
     m_program.setUniformValue("mvpMatrix", mvpMatrix);
     m_program.setUniformValue("mvMatrix", mvMatrix);
@@ -148,7 +149,13 @@ QMatrix4x4 View::paintMaster(QMatrix4x4 &mv)
     static GLint count = model->getModelVertecesNum(model->MASTER);
     QMatrix4x4 mvMatrix = mv * model->matrix_master * model->action_master * model->center_master;
     QMatrix4x4 mvpMatrix = m_projection * mvMatrix;
-    QMatrix4x4 normalMatrix = mvMatrix;
+    QMatrix3x3 normalMatrix;
+    float *tdata = normalMatrix.data();
+    float *sdata = mvMatrix.data();
+    for(int i=0;i<3;++i)
+        for(int j=0;j<3;++j){
+            tdata[i*3+j] = sdata[i*4+j];
+        }
 
     m_program.setUniformValue("mvpMatrix", mvpMatrix);
     m_program.setUniformValue("mvMatrix", mvMatrix);
@@ -165,7 +172,13 @@ QMatrix4x4 View::paintAssistant(QMatrix4x4 &mv)
     static GLint count = model->getModelVertecesNum(model->ASSISTANT);
     QMatrix4x4 mvMatrix = mv * model->matrix_assistant * model->action_assistant * model->center_assistant;
     QMatrix4x4 mvpMatrix = m_projection * mvMatrix;
-    QMatrix4x4 normalMatrix = mvMatrix;
+    QMatrix3x3 normalMatrix;
+    float *tdata = normalMatrix.data();
+    float *sdata = mvMatrix.data();
+    for(int i=0;i<3;++i)
+        for(int j=0;j<3;++j){
+            tdata[i*3+j] = sdata[i*4+j];
+        }
 
     m_program.setUniformValue("mvpMatrix", mvpMatrix);
     m_program.setUniformValue("mvMatrix", mvMatrix);
@@ -183,7 +196,13 @@ QMatrix4x4 View::paintBar(QMatrix4x4 &mv)
     static GLint count = model->getModelVertecesNum(model->BAR);
     QMatrix4x4 mvMatrix = mv * model->matrix_bar * model->action_bar * model->action_bar_move * model->center_bar;
     QMatrix4x4 mvpMatrix = m_projection * mvMatrix;
-    QMatrix4x4 normalMatrix = mvMatrix;
+    QMatrix3x3 normalMatrix;
+    float *tdata = normalMatrix.data();
+    float *sdata = mvMatrix.data();
+    for(int i=0;i<3;++i)
+        for(int j=0;j<3;++j){
+            tdata[i*3+j] = sdata[i*4+j];
+        }
 
     m_program.setUniformValue("mvpMatrix", mvpMatrix);
     m_program.setUniformValue("mvMatrix", mvMatrix);
