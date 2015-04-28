@@ -6,6 +6,7 @@
 * Qt5.4
 * OpenGL ES 2.0
 * Mac OS 10.10(实测同样可在Windows上正常工作)
+
 ##目标平台
 由于是Qt开发的，因此直接在各大平台编译就可以运行。
 * Windows
